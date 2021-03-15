@@ -1,0 +1,550 @@
+
+@import "http://fonts.googleapis.com/css?family=Droid+Serif";
+/* The Above Line Is To Import Google Font Style */
+.maindiv {
+margin:30px auto;
+width:980px;
+height:500px;
+background:#fff;
+padding-top:20px;
+font-family:'Droid Serif',serif;
+font-size:14px
+}
+.title {
+width:500px;
+height:70px;
+text-shadow:2px 2px 2px #cfcfcf;
+font-size:16px;
+text-align:center
+}
+.form_div {
+width:70%;
+float:left
+}
+form {
+width:300px;
+border:1px dashed #aaa;
+padding:10px 30px 40px;
+margin-left:70px;
+background-color:#f0f8ff
+}
+form h2 {
+text-align:center;
+text-shadow:2px 2px 2px #cfcfcf
+}
+textarea {
+width:100%;
+height:60px;
+border-radius:1px;
+box-shadow:0 0 1px 2px #123456;
+margin-top:10px;
+padding:7px;
+border:none
+}
+.input {
+width:100%;
+height:30px;
+border-radius:2px;
+box-shadow:0 0 1px 2px #123456;
+margin-top:10px;
+padding:7px;
+border:none;
+margin-bottom:20px
+}
+.submit {
+color:#fff;
+border-radius:3px;
+background:#1F8DD6;
+padding:5px;
+margin-top:40px;
+border:none;
+width:100%;
+height:30px;
+box-shadow:0 0 1px 2px #123456;
+font-size:18px
+}
+p {
+color:red;
+text-align:center
+}
+span {
+text-align:center;
+color:green
+}
+<?php
+$con = mysql_connect("localhost","root","");
+mysql_select_db("ABC", $con);
+@$a=$_POST['name'];
+@$b=$_POST['sex'];
+if(@$_POST['submit'])
+{
+echo $s="insert into employee(name,sex) values('$a','$b')";
+echo "Your Data Inserted";
+mysql_query($s);
+}
+?>
+<html>
+<body bgcolor="pink">
+<center>
+<form method="post">
+<table border="1" bgcolor="#00CCFF">
+<tr><td>Name</td>
+<td><input type="text" name="name"/></td>
+</tr>
+<tr><td rowspan="2">Sex</td>
+<td><input type="radio" name="sex" value="Male"/>Male</td>
+<tr>
+<td><input type="radio" name="sex" value="Female"/>Female</td></tr>
+</tr>
+<tr><td><input type="submit" name="submit" value="Submit"/></td></tr>
+</table>
+</form>
+</center>
+</body>
+</html>
+/*data from /* DEBUG:  */*/
+<form action="insert.php" method="post">
+    Value1: <input type="text" name = "field1" /><br/>
+    Value2: <input type="text" name = "field2" /><br/>
+    Value3: <input type="text" name = "field3" /><br/>
+    Value4: <input type="text" name = "field4" /><br/>
+    Value5: <input type="text" name = "field5" /><br/>
+    <input type="submit" />
+</form>
+
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+<?php
+$username = "your_username";
+$password = "your_pass";
+$database = "your_db";
+
+$mysqli = new mysqli("localhost", $username, $password, $database);
+
+// Don't forget to properly escape your values before you send them to DB
+// to prevent SQL injection attacks.
+
+$field1 = $mysqli->real_escape_string($_POST['field1']);
+$field2 = $mysqli->real_escape_string($_POST['field2']);
+$field3 = $mysqli->real_escape_string($_POST['field3']);
+$field4 = $mysqli->real_escape_string($_POST['field4']);
+$field5 = $mysqli->real_escape_string($_POST['field5']);
+
+$query = "INSERT INTO table_name (col1, col2, col3, col4, col5)
+            VALUES ('{$field1}','{$field2}','{$field3}','{$field4}','{$field5}')";
+
+$mysqli->query($query);
+$mysqli->close();
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+$query = "SELECT * FROM table_name";
+
+if ($result = $mysqli->query($query)) {
+
+    /* fetch associative array */
+    while ($row = $result->fetch_assoc()) {
+        $field1name = $row["col1"];
+        $field2name = $row["col2"];
+        $field3name = $row["col3"];
+        $field4name = $row["col4"];
+        $field5name = $row["col5"];
+    }
+
+    /* free result set */
+    $result->free();
+}
+?php
+$username = "username";
+$password = "password";
+$database = "your_database";
+$mysqli = new mysqli("localhost", $username, $password, $database);
+
+$query = "SELECT * FROM table_name";
+echo "<b> <center>Database Output</center> </b> <br> <br>";
+
+if ($result = $mysqli->query($query)) {
+
+    while ($row = $result->fetch_assoc()) {
+        $field1name = $row["col1"];
+        $field2name = $row["col2"];
+        $field3name = $row["col3"];
+        $field4name = $row["col4"];
+        $field5name = $row["col5"];
+
+        echo '<b>'.$field1name.$field2name.'</b><br />';
+        echo $field5name.'<br />';
+        echo $field5name.'<br />';
+        echo $field5name;
+    }
+
+/*freeresultset*/
+$result->free();
+}
+<html>
+<body>
+<?php
+$username = "username";
+$password = "password";
+$database = "your_database";
+$mysqli = new mysqli("localhost", $username, $password, $database);
+$query = "SELECT * FROM table_name";
+
+
+echo '<table border="0" cellspacing="2" cellpadding="2">
+      <tr>
+          <td> <font face="Arial">Value1</font> </td>
+          <td> <font face="Arial">Value2</font> </td>
+          <td> <font face="Arial">Value3</font> </td>
+          <td> <font face="Arial">Value4</font> </td>
+          <td> <font face="Arial">Value5</font> </td>
+      </tr>';
+
+if ($result = $mysqli->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+        $field1name = $row["col1"];
+        $field2name = $row["col2"];
+        $field3name = $row["col3"];
+        $field4name = $row["col4"];
+        $field5name = $row["col5"];
+
+        echo '<tr>
+                  <td>'.$field1name.'</td>
+                  <td>'.$field2name.'</td>
+                  <td>'.$field3name.'</td>
+                  <td>'.$field4name.'</td>
+                  <td>'.$field5name.'</td>
+              </tr>';
+    }
+    $result->free();
+}
+?>
+</body>
+</html>
+/* textarea*/
+while($row = mysql_fetch_array($result_reviews))
+        {
+            echo "<td>" .$row['username']. "</td>";
+            echo "<td>" .$row['title']. "</td>";
+            //echo "<td>" .$row['review']. "</td>";
+            echo "<td><textarea rows="8" cols="50">" .$row['review']. "</textarea></td>";
+
+            echo ("<td><a href=\"editreview.php?id=$row[id]\">
+                <button>Edit Review</button></a></td>");
+
+            echo ("<td><a href=\"delete.php?id=$row[id]\">
+                <button>Deleat Review</button></a></td></tr>");
+        }
+        ?php
+$result = mysql_query("select * from `indexinfo` where id = 1");
+$row = mysql_fetch_array($result);
+{
+?>
+<form action="#" method="post">
+<p><h2>EDIT ZONE 1:</h2></p>
+<label>Title:<input type="text" name="Title" value="<?php echo $result['Title']; ?>" /></label><br />
+<label>Subtitle: <input type="text" name="Subtitle" value="<?php echo $Subtitle; ?>" /></label><br />
+<label>Content: <TEXTAREA name="Content" ROWS=10 COLS=100><?php echo $Content; ?></TEXTAREA><br />
+<label>Author: <input type="text" name="Author" value="<?php echo $Author; ?>" /></label><br />
+<label>Date: <input type="text" name="Date" value="<?php echo $Date; ?>" /></label><br />
+<input type="hidden" name="id" value="<?php echo $id; ?>" />
+<input type="submit" value="Submit" name="send" /></p>
+</form>
+<?php } ?>
+/* product prices*/
+<INPUT type="button" value="Add Row" onclick="addRow('dataTable')" />
+
+<INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
+
+<TABLE id="dataTable" width="350px" border="1">
+    <TR>
+        <TD><INPUT type="checkbox" name="chk"/></TD>
+        <TD><INPUT type="text" name="txt"/></TD>
+        <TD>
+            <SELECT name="country" onchange="getPrice(this.value, this.closest('tr').rowIndex);">
+                <?php while($row = mysql_fetch_array($query)) {
+
+                echo '<option value="' .$row['nom'] . '">'.$row['nom'].'</option>'; }
+
+                ?>
+
+
+            </SELECT>
+        </TD>
+
+        <TD><INPUT type="text" name="txt"/></TD>
+
+
+    </TR>
+</TABLE>
+php html
+
+/ example how to fill this with PHP from your database
+var prices = {
+  'test_prod_1' : 16.46,
+  'test_prod_2' : 21.55,
+  'test_prod_3' :  7.4
+};
+
+
+function getPrice( prodID, tableCell )
+{
+  if (typeof prices[prodID] !== 'undefined')
+    tableCell.innerHTML  = '&euro;' + prices[prodID];  // Get the price from the pre-loaded price information
+  else
+    tableCell.innerHTML  = '?';
+
+}
+<input type="button" value="click me" onClick="javascript:getPrice('test_prod_2', document.getElementById('test_cell'));">
+
+<table border=1 cellspacing=0 cellpadding=5>
+  <tr>
+    <td>Product name</td>
+    <td>price</td>
+  </tr>
+
+  <tr>
+    <td>test</td>
+    <td id="test_cell"></td>
+  </tr>
+</table>
+/* shopping cartI*/
+?php
+$product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id ASC");
+if (!empty($product_array)) {
+	foreach($product_array as $key=>$value){
+?>
+	<div class="product-item">
+		<form method="post" action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+		<div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div>
+		<div class="product-tile-footer">
+		<div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
+		<div class="product-price"><?php echo "$".$product_array[$key]["price"]; ?></div>
+		<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
+		</div>
+		</form>
+	</div>
+<?php
+	}
+}
+?>
+/*adding product to shopping cart*/
+case "add":
+	if(!empty($_POST["quantity"])) {
+		$productByCode = $db_handle->runQuery("SELECT * FROM tblproduct WHERE code='" . $_GET["code"] . "'");
+		$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["name"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["image"]));
+
+		if(!empty($_SESSION["cart_item"])) {
+			if(in_array($productByCode[0]["code"],array_keys($_SESSION["cart_item"]))) {
+				foreach($_SESSION["cart_item"] as $k => $v) {
+						if($productByCode[0]["code"] == $k) {
+							if(empty($_SESSION["cart_item"][$k]["quantity"])) {
+								$_SESSION["cart_item"][$k]["quantity"] = 0;
+							}
+							$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+						}
+				}
+			} else {
+				$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+			}
+		} else {
+			$_SESSION["cart_item"] = $itemArray;
+		}
+	}
+	break;
+  /* list of items from a shopping cart*/
+  <div id="shopping-cart">
+<div class="txt-heading">Shopping Cart</div>
+
+<a id="btnEmpty" href="index.php?action=empty">Empty Cart</a>
+<?php
+if(isset($_SESSION["cart_item"])){
+    $total_quantity = 0;
+    $total_price = 0;
+?>
+<table class="tbl-cart" cellpadding="10" cellspacing="1">
+<tbody>
+<tr>
+<th style="text-align:left;">Name</th>
+<th style="text-align:left;">Code</th>
+<th style="text-align:right;" width="5%">Quantity</th>
+<th style="text-align:right;" width="10%">Unit Price</th>
+<th style="text-align:right;" width="10%">Price</th>
+<th style="text-align:center;" width="5%">Remove</th>
+</tr>
+<?php
+    foreach ($_SESSION["cart_item"] as $item){
+        $item_price = $item["quantity"]*$item["price"];
+		?>
+				<tr>
+				<td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+				<td><?php echo $item["code"]; ?></td>
+				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+				<td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+				</tr>
+				<?php
+				$total_quantity += $item["quantity"];
+				$total_price += ($item["price"]*$item["quantity"]);
+		}
+		?>
+
+<tr>
+<td colspan="2" align="right">Total:</td>
+<td align="right"><?php echo $total_quantity; ?></td>
+<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+  <?php
+} else {
+?>
+<div class="no-records">Your Cart is Empty</div>
+<?php
+}
+?>
+</div>
+/*remove an item */
+case "remove":
+	if(!empty($_SESSION["cart_item"])) {
+		foreach($_SESSION["cart_item"] as $k => $v) {
+			if($_GET["code"] == $k)
+				unset($_SESSION["cart_item"][$k]);
+			if(empty($_SESSION["cart_item"]))
+				unset($_SESSION["cart_item"]);
+		}
+	}
+	break;
+case "empty":
+	unset($_SESSION["cart_item"]);
+        break;
+/* database for the shopping cart*/
+
+-- Table structure for table `tblproduct`
+--
+
+CREATE TABLE `tblproduct` (
+  `id` int(8) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `image` text NOT NULL,
+  `price` double(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblproduct`
+--
+
+INSERT INTO `tblproduct` (`id`, `name`, `code`, `image`, `price`) VALUES
+(1, 'FinePix Pro2 3D Camera', '3DcAM01', 'product-images/camera.jpg', 1500.00),
+(2, 'EXP Portable Hard Drive', 'USB02', 'product-images/external-hard-drive.jpg', 800.00),
+(3, 'Luxury Ultra thin Wrist Watch', 'wristWear03', 'product-images/watch.jpg', 300.00),
+(4, 'XP 1155 Intel Core Laptop', 'LPN45', 'product-images/laptop.jpg', 800.00);
+
+--
+-- Indexes for table `tblproduct`
+--
+ALTER TABLE `tblproduct`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `product_code` (`code`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tblproduct`
+--
+ALTER TABLE `tblproduct`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+/* create a tabke for product_images*/
+CREATE TABLE IF NOT EXISTS `product_images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `name` varchar(512) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+  /* create a tablle products*/
+  REATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(512) NOT NULL,
+  `description` text NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='products that can be added to cart' AUTO_INCREMENT=41 ;
+/* create a table items*/
+CREATE TABLE IF NOT EXISTS `cart_items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `quantity` double NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+/*oop2 php db connection*/
+<?php
+// used to get mysql database connection
+class Database{
+
+    // specify your own database credentials
+    private $host = "localhost";
+    private $db_name = "shop_cart_mysql_1";
+    private $username = "root";
+    private $password = "";
+    public $conn;
+
+    // get the database connection
+    public function getConnection(){
+
+        $this->conn = null;
+
+        try{
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+        }catch(PDOException $exception){
+            echo "Connection error: " . $exception->getMessage();
+        }
+
+        return $this->conn;
+    }
+
+}
+?>

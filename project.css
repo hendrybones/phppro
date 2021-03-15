@@ -1,0 +1,21 @@
+body{
+  background-color:  powderblue;
+}
+h1{
+  text-align: center;
+  style:bold;
+  color:blue;
+}
+header{
+  border: 1px solid powderblue;
+  background: yellow;
+  padding: 20px;
+  margin: 0px;
+
+
+}
+li{
+  
+  padding: 10px;
+  margin: 0px;
+}
