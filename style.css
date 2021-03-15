@@ -1,0 +1,14 @@
+.wrapper{
+    margin-left:250px;
+    margin-top:45px;
+    padding: auto;
+    border: 2px solid powderblue;
+}
+body{
+    background-color: powderblue;
+
+}
+h1{
+    text-align: center;
+    background-color: orange;
+}

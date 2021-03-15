@@ -1,0 +1,65 @@
+body{
+    background-color: powderblue;
+}
+.main-menu-area{}
+.logo{margin-top: 10px}
+.logo a{
+    color: #444444;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+h1{
+    text-align: center;
+    text-transform: uppercase;
+
+}
+li{
+    display: inline-block;
+    text-align: center;
+}
+ul{
+    text-align: right;
+    padding-top: 20px;
+    margin: 0px;
+}
+.main-menu-area{}
+.logo{margin-top: 10px}
+.logo a{
+    color: #444444;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.main-menu{}
+.main-menu ul{}
+.main-menu ul li {
+    display: inline-block;
+    text-align: left; 
+}
+.main-menu ul li a {
+    color: #444444;
+    display: block;
+    font-weight: 700;
+    padding: 30px 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.single-slider{height:100vh}
+.slider-title{
+    display: table-cell;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+
+}
+.table-cell{
+    display: table-cell;
+    vertical-align: middle;
+}
+.table-cell h2{
+    color: #ffffff;
+    font-weight: 500;
+}

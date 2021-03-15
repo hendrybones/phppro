@@ -1,0 +1,33 @@
+body{
+   
+}
+.main-menu-area{}
+.logo{margin-top: 10px}
+.logo a{
+    color: #444444;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.main-menu{}
+.main-menu ul{}
+.main-menu ul li {
+    display: inline-block;
+    text-align: left; 
+}
+.main-menu ul li a {
+    color: #444444;
+    display: block;
+    font-weight: 700;
+    padding: 30px 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.single-slider{height: 100;}
+.single-slider{
+    display: table;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
